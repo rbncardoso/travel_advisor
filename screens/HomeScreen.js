@@ -6,8 +6,8 @@ export class HomeScreen extends Component {
   render() {
     return (
     
-        <View className="bg-black">
-          <Text className="text-red-500">Open up Home</Text>
+        <View >
+          <Text className="text-blue-300">Open up Home</Text>
         </View>
       
     )
