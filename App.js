@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 export default function App() {
 
   const Stack = createNativeStackNavigator();
+ 
 
   return (
     <TailwindProvider>
