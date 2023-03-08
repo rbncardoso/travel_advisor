@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -37,11 +37,23 @@ const HomeScreen = () => {
 
       {/** Image Container */}
 
-        <View className="flex-1 items-center justify-center relative">
-          <Image source={HeroImage}
+      <View className="flex-1 items-center justify-center relative">
+        <Image source={HeroImage}
           className="w-full h-full"
-          />
+        />
+      </View>
+
+      {/**TouchableOpacity */}
+      <TouchableOpacity>
+        <View className="flex-1  items-center justify-center absolute w-24 h-24 
+        bottom-20 right-40 border-l-2 border-t-2 border-r-2 border-[#00BCC9] rounded-full">
+          <View className="w-20 h-20 bg-[#00BCC9] rounded-full">
+            <View className="relative items-center -bottom-5">
+              <Text className="font-semibold text-[30px] text-white ">GO</Text>
+            </View>
+          </View>
         </View>
+      </TouchableOpacity>
     </SafeAreaView>
   )
 }
