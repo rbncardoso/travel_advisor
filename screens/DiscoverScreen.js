@@ -1,9 +1,10 @@
-import { View, Text, Image, ScrollView } from 'react-native'
+import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Attraction, Avatar, Hotels, Restaurants } from '../assets';
 import MenuContainer from '../components/MenuContainer';
+import { FontAwesome } from '@expo/vector-icons';
 
 const DiscoverScreen = () => {
 
@@ -62,6 +63,17 @@ const DiscoverScreen = () => {
           />
 
 
+        </View>
+
+        <View>
+         
+          <View className="flex-row flex-1 items-center justify-between px-4 mt-8">
+            <Text className="text-[#2C7379] text-[28px] font-bold">Top Tips</Text>
+            <TouchableOpacity className="flex-row items-center justify-center space-x-1">
+              <Text className="text-[#A0C4C7] text-[20px] font-bold">Explore </Text>
+              <FontAwesome name="long-arrow-right" size={24} color="#A0C4C7" />
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
 
