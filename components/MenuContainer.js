@@ -16,9 +16,9 @@ const MenuContainer = ({ title, imageSrc, type, setType }) => {
     >
       <Animatable.View 
       className={`w-24 h-24 shadow-sm rounded-full
-      ${type === title.toLowerCase() ? "bg-gray-200 border-t-2 border-l-2 border-r-2 border-[#00BCC9] border-25"  : ""}`}
+      ${type === title.toLowerCase() ? "border-t-2 border-l-2 border-r-2 border-[#00BCC9] border-25"  : ""}`}
       animation={`${type === title.toLowerCase() ? "pulse" : ""}`}
-      easing={`${type === title.toLowerCase() ? "ease-in-out" : ""}`}
+      easing={`${type === title.toLowerCase() ? "ease-in-circ" : ""}`}
       iterationCount ={`${type === title.toLowerCase() ? "infinite" : ""}`}
        
        >
