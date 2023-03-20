@@ -78,7 +78,7 @@ const DiscoverScreen = () => {
             </TouchableOpacity>
           </View>
           
-          <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
+          <View className="flex-row px-4 mt-8  items-center justify-evenly flex-wrap">
             <ItemCardContainer key={"1"} 
             imageSrc ={"https://q-xx.bstatic.com/xdata/images/hotel/max500/329549130.jpg?k=3f501bb7efcce66606cb0de29bec500a4d7124dfeb975aaf44804d8b030f9077&o="}
              title="Residencial S.to Amaro" 
