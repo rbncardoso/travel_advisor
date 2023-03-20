@@ -5,6 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Attraction, Avatar, Hotels, Restaurants } from '../assets';
 import MenuContainer from '../components/MenuContainer';
 import { FontAwesome } from '@expo/vector-icons';
+import ItemCardContainer from '../components/ItemCardContainer';
+
 
 const DiscoverScreen = () => {
 
@@ -75,6 +77,18 @@ const DiscoverScreen = () => {
               <FontAwesome name="long-arrow-right" size={24} color="#A0C4C7" />
             </TouchableOpacity>
           </View>
+          
+          <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
+            <ItemCardContainer key={"1"} 
+            imageSrc ={"https://q-xx.bstatic.com/xdata/images/hotel/max500/329549130.jpg?k=3f501bb7efcce66606cb0de29bec500a4d7124dfeb975aaf44804d8b030f9077&o="}
+             title="Residencial S.to Amaro" 
+             location="Tarrafal" />
+            <ItemCardContainer key={"2"} 
+            imageSrc={"https://media-cdn.tripadvisor.com/media/photo-s/1a/9b/f9/2c/king-fisher-village-restaurant.jpg"} 
+            title="King Fisher Village"
+            location="Tarrafal"/>
+          </View>
+
         </View>
       </ScrollView>
 
