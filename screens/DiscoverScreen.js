@@ -41,6 +41,13 @@ const DiscoverScreen = () => {
       <ScrollView>
         <View className=" flex-row items-center justify-between px-8 mt-8">
           <MenuContainer
+            key={"restaurants"}
+            title="Restaurants"
+            imageSrc={Restaurants}
+            type={type}
+            setType={setType}
+          />
+          <MenuContainer
             key={"attraction"}
             title="Attraction"
             imageSrc={Attraction}
@@ -54,13 +61,7 @@ const DiscoverScreen = () => {
             type={type}
             setType={setType}
           />
-          <MenuContainer
-            key={"restaurants"}
-            title="Restaurants"
-            imageSrc={Restaurants}
-            type={type}
-            setType={setType}
-          />
+          
 
 
         </View>
