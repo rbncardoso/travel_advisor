@@ -8,6 +8,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import ItemCardContainer from '../components/ItemCardContainer';
 
 
+
 const DiscoverScreen = () => {
 
   const navigation = useNavigation();
@@ -86,7 +87,7 @@ const DiscoverScreen = () => {
             <ItemCardContainer key={"2"} 
             imageSrc={"https://media-cdn.tripadvisor.com/media/photo-s/1a/9b/f9/2c/king-fisher-village-restaurant.jpg"} 
             title="King Fisher Village"
-            location="Tarrafal"/>
+            location="Serra Malagueta, Tarrafal"/>
           </View>
 
         </View>
