@@ -1,11 +1,12 @@
-import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Attraction, Avatar, Hotels, Restaurants } from '../assets';
+import { Attraction, Avatar, DoNotFound, Hotels, Restaurants } from '../assets';
 import MenuContainer from '../components/MenuContainer';
 import { FontAwesome } from '@expo/vector-icons';
 import ItemCardContainer from '../components/ItemCardContainer';
+
 
 
 
@@ -14,6 +15,8 @@ const DiscoverScreen = () => {
   const navigation = useNavigation();
 
   const [type, setType] = useState("restaurants");
+  const [isLoad, setIsLoad] = useState(false);
+  const [mainData, setMainData] = useState(2);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -41,57 +44,75 @@ const DiscoverScreen = () => {
       </View>
       {/**Menu COntainer */}
 
-      <ScrollView>
-        <View className=" flex-row items-center justify-between px-8 mt-8">
-          <MenuContainer
-            key={"restaurants"}
-            title="Restaurants"
-            imageSrc={Restaurants}
-            type={type}
-            setType={setType}
-          />
-          <MenuContainer
-            key={"attraction"}
-            title="Attraction"
-            imageSrc={Attraction}
-            type={type}
-            setType={setType}
-          />
-          <MenuContainer
-            key={"hotels"}
-            title="Hotels"
-            imageSrc={Hotels}
-            type={type}
-            setType={setType}
-          />
-          
+      {isLoad ?
+        <View className="flex-1 items-center justify-center">
+          <ActivityIndicator size={"large"} color="#0B646B" />
+        </View> :
+        <ScrollView>
+          <View className=" flex-row items-center justify-between px-8 mt-8">
+            <MenuContainer
+              key={"restaurants"}
+              title="Restaurants"
+              imageSrc={Restaurants}
+              type={type}
+              setType={setType}
+            />
+            <MenuContainer
+              key={"attraction"}
+              title="Attraction"
+              imageSrc={Attraction}
+              type={type}
+              setType={setType}
+            />
+            <MenuContainer
+              key={"hotels"}
+              title="Hotels"
+              imageSrc={Hotels}
+              type={type}
+              setType={setType}
+            />
 
 
-        </View>
 
-        <View>
-         
-          <View className="flex-row flex-1 items-center justify-between px-4 mt-8">
-            <Text className="text-[#2C7379] text-[28px] font-bold">Top Tips</Text>
-            <TouchableOpacity className="flex-row items-center justify-center space-x-1">
-              <Text className="text-[#A0C4C7] text-[20px] font-bold">Explore </Text>
-              <FontAwesome name="long-arrow-right" size={24} color="#A0C4C7" />
-            </TouchableOpacity>
-          </View>
-          
-          <View className="flex-row px-4 mt-8  items-center justify-evenly flex-wrap">
-            <ItemCardContainer key={"1"} 
-            imageSrc ={"https://q-xx.bstatic.com/xdata/images/hotel/max500/329549130.jpg?k=3f501bb7efcce66606cb0de29bec500a4d7124dfeb975aaf44804d8b030f9077&o="}
-             title="Residencial S.to Amaro" 
-             location="Tarrafal" />
-            <ItemCardContainer key={"2"} 
-            imageSrc={"https://media-cdn.tripadvisor.com/media/photo-s/1a/9b/f9/2c/king-fisher-village-restaurant.jpg"} 
-            title="King Fisher Village"
-            location="Serra Malagueta, Tarrafal"/>
           </View>
 
-        </View>
-      </ScrollView>
+          <View>
+
+            <View className="flex-row flex-1 items-center justify-between px-4 mt-8">
+              <Text className="text-[#2C7379] text-[28px] font-bold">Top Tips</Text>
+              <TouchableOpacity className="flex-row items-center justify-center space-x-1">
+                <Text className="text-[#A0C4C7] text-[20px] font-bold">Explore </Text>
+                <FontAwesome name="long-arrow-right" size={24} color="#A0C4C7" />
+              </TouchableOpacity>
+            </View>
+
+            {mainData?.length > 0 ? (<>
+              <View className="flex-row px-4 mt-8  items-center justify-evenly flex-wrap">
+                <ItemCardContainer key={"1"}
+                  imageSrc={"https://q-xx.bstatic.com/xdata/images/hotel/max500/329549130.jpg?k=3f501bb7efcce66606cb0de29bec500a4d7124dfeb975aaf44804d8b030f9077&o="}
+                  title="Residencial S.to Amaro"
+                  location="Tarrafal" />
+                <ItemCardContainer key={"2"}
+                  imageSrc={"https://media-cdn.tripadvisor.com/media/photo-s/1a/9b/f9/2c/king-fisher-village-restaurant.jpg"}
+                  title="King Fisher Village"
+                  location="Serra Malagueta, Tarrafal" />
+              </View>
+            </>) : (
+              <>
+                <View className="items-center justify-center ">
+                  <Image source={DoNotFound}
+                    className="w-40 h-40 "
+                  />
+                  <Text className="text-[#2C7379] text-[28px] font-bold">
+                    Opss...Not Data Found</Text>
+                </View>
+              </>)}
+
+
+          </View>
+        </ScrollView>
+      }
+
 
     </SafeAreaView>
   )
