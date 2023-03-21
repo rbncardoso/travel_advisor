@@ -16,7 +16,7 @@ const DiscoverScreen = () => {
 
   const [type, setType] = useState("restaurants");
   const [isLoad, setIsLoad] = useState(false);
-  const [mainData, setMainData] = useState(2);
+  const [mainData, setMainData] = useState([]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
